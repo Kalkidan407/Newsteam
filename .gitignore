@@ -1,6 +1,6 @@
 env/
-venv/
+
 miscellaneous/
-media/
+
 *.mkv
 

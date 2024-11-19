@@ -23,12 +23,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u4+q0z!248jb1g=f(%bs*&&-xw%4^4wfgyb%am$+s(%&2p^xvi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
+<<<<<<< HEAD
 # ALLOWED_HOSTS = ['localhost', 'siteman.pythonanywhere.com']
 # ALLOWED_HOSTS = ['localhost', 'siteman.pythonanywhere.com']
 ALLOWED_HOSTS = ['.vercel.app']
 
+=======
+ALLOWED_HOSTS = ['.vercel.app']
+# ALLOWED_HOSTS = ['127.0.0.1','localhost']
+>>>>>>> a1d7a7fa80ac59134b8661dbe9d5223bbcb543d6
 
 # Application definition
 
@@ -139,9 +144,12 @@ LOGIN_REDIRECT_URL = 'products-page'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+>>>>>>> a1d7a7fa80ac59134b8661dbe9d5223bbcb543d6
