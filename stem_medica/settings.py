@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-u4+q0z!248jb1g=f(%bs*&&-xw%4^4wfgyb%am$+s(%&2p^xvi
 DEBUG = False
 
 <<<<<<< HEAD
-# ALLOWED_HOSTS = ['localhost', 'siteman.pythonanywhere.com']
-# ALLOWED_HOSTS = ['localhost', 'siteman.pythonanywhere.com']
+
 ALLOWED_HOSTS = ['.vercel.app']
 
 =======
@@ -61,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'stem_medica.urls'
@@ -132,7 +132,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),  )
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
