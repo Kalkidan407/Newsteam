@@ -141,12 +141,10 @@ LOGIN_REDIRECT_URL = 'products-page'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-<<<<<<< HEAD
 
 
 
 
 
 
-=======
->>>>>>> a1d7a7fa80ac59134b8661dbe9d5223bbcb543d6
+
