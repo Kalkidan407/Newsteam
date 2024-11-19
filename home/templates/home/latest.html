@@ -1,0 +1,17 @@
+{% extends 'home/home.html' %} {% block pageoption %}
+<div class="container text-center mt-3">
+	<a class="btn btn-outline-success mx-2 w-25" href="{% url 'home-page'%}">IN-DEMAND</a>
+	<button class="btn btn-success mx-2 w-25">LATEST ARRIVALS</button>
+</div>
+<div class="container text-center my-5 slide-up">
+	<div class="row">
+		{% for product in products|slice:":18" %}
+		<!-- Section Card -->
+		<a class="col-md-2 col-6 mb-4 text-decoration-none text-dark" href="{% url 'product-page' product.id %}">
+			<img src="{{product.images.first.image.url}}" class="img-fluid" alt="product image" style="height: 12rem; max-width: 14rem" />
+			<h6 class="mt-2 text title font-weight-bold">{{product.name}} - {{product.model}}</h6>
+		</a>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,267 @@
+{% extends "home/base.html" %} {% load crispy_forms_tags %} {% block content %}
+
+<!--- Contact Us Page Content --->
+<section id="contact" class="contact section">
+  <!-- Section Title -->
+  <div class="container contact-txt section-title" data-aos="fade-up">
+    <h2>Contact us</h2>
+  </div>
+  <!-- End Section Title -->
+
+  <div class="contact-cont" data-aos="fade" data-aos-delay="100">
+    <div class="row gy-4">
+      <div class="col-lg-4 contact-info">
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+          <i class="bi bi-geo-alt flex-shrink-0"></i>
+          <div>
+            <h3>Address</h3>
+            <p>Addis Abab, Ethiopia</p>
+          </div>
+        </div>
+        <!-- End Info Item -->
+
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+          <i class="bi bi-telephone flex-shrink-0"></i>
+          <div>
+            <h3>Call Us</h3>
+            <p>+251 912056877/911272252</p>
+          </div>
+        </div>
+        <!-- End Info Item -->
+
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+          <i class="bi bi-envelope flex-shrink-0"></i>
+          <div>
+            <h3>Email Us</h3>
+            <p>nardosmaci123@gmail.com</p>
+          </div>
+        </div>
+        <!-- End Info Item -->
+      </div>
+
+      <div class="col-lg-8 contactForm">
+        <form data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-4">
+            <div class="col-md-6 input-item">
+              <input
+                type="text"
+                class="form-control nameInt"
+                id="name"
+                placeholder="Your Name"
+                required=""
+              />
+            </div>
+
+            <div class="col-md-6">
+              <input
+                type="email"
+                class="form-control input-item"
+                id="email"
+                placeholder="Your Email"
+                required=""
+              />
+            </div>
+
+            <div class="col-md-12">
+              <textarea
+                class="form-contro"
+                id="message"
+                rows="6"
+                placeholder="Message"
+                required=""
+              ></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <button type="submit" class="submit-btn">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- End Contact Form -->
+    </div>
+  </div>
+</section>
+
+<style>
+  .submit-btn {
+    width: 180px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #45ae28;
+    color: white;
+    border: none;
+    outline: none;
+    position: relative;
+    right: 88px;
+  }
+  .submit-btn:hover {
+    background-color: #81c640;
+  }
+
+  .nameInt {
+    width: 600px !important;
+  }
+  .input-item {
+    width: 600px;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    bottom: 40px;
+  }
+  .contact-cont {
+    width: 70%;
+    position: relative;
+    left: 320px;
+  }
+  .contact-info {
+    position: relative;
+    left: 250px;
+  }
+  .contactForm {
+    position: relative;
+    left: 140px;
+    justify-content: center;
+    align-items: center;
+  }
+  textarea {
+    width: 630px;
+  }
+
+  .contact-txt {
+    color: rgb(10, 76, 99);
+    text-shadow: 0 0 10px rgb(164, 245, 44);
+    margin-bottom: 20px;
+  }
+  .contact {
+    margin-bottom: 70px;
+    margin-top: 100px;
+  }
+  .contact .info-item + .info-item {
+    margin-top: 40px;
+  }
+
+  .contact .info-item i {
+    color: rgb(0, 0, 0);
+    background: color-mix(in srgb, green, transparent 92%);
+    font-size: 20px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    margin-right: 15px;
+  }
+
+  .contact .info-item h3 {
+    padding: 0;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  .contact .info-item p {
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+  }
+
+  .contact .info-item:hover i {
+    background: greenyellow;
+    color: white;
+  }
+
+  @media (max-width: 1200px) {
+    .contact-cont {
+      width: 90%;
+      left: 5%;
+    }
+    .contact-info {
+      left: 0;
+    }
+    .contactForm {
+      right: 0;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .nameInt,
+    .input-item,
+    textarea {
+      width: 450px !important;
+    }
+    .submit-btn {
+      left: 0;
+    }
+  }
+  @media (max-width: 768px) {
+    .nameInt,
+    .input-item,
+    textarea {
+      width: 400px !important;
+    }
+    .submit-btn {
+      left: 0;
+    }
+  }
+
+  @media (max-width: 893px) {
+    .nameInt {
+      width: 200px !important;
+    }
+    .input-item {
+      width: 200px !important;
+    }
+
+    textarea {
+      width: 200px;
+    }
+    .submit-btn {
+      left: 0;
+    }
+    .contact-cont {
+      width: 100%;
+      left: 0;
+    }
+    .contact-info,
+    .contactForm {
+      position: static;
+    }
+    .submit-btn {
+      width: 100%;
+      max-width: 180px;
+    }
+  }
+  @media (max-width: 754px) and (max-width: 678px) {
+    textarea {
+      width: 360px;
+      margin-left: 140px;
+    }
+
+    .nameInt {
+      width: 200px !important;
+      margin-left: 3px;
+    }
+    .input-item {
+      width: 700px;
+      margin-left: 150px;
+    }
+    .contact-info {
+      position: relative;
+      left: 150px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      position: relative;
+      bottom: 20px;
+    }
+  }
+</style>
+
+{% endblock content %}
