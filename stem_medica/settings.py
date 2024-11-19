@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-u4+q0z!248jb1g=f(%bs*&&-xw%4^4wfgyb%am$+s(%&2p^xvi
 DEBUG = True
 
 # ALLOWED_HOSTS = ['localhost', 'siteman.pythonanywhere.com']
+# ALLOWED_HOSTS = ['localhost', 'siteman.pythonanywhere.com']
 ALLOWED_HOSTS = ['.vercel.app']
 
 
@@ -134,3 +135,5 @@ LOGIN_REDIRECT_URL = 'products-page'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
