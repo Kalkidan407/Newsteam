@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-u4+q0z!248jb1g=f(%bs*&&-xw%4^4wfgyb%am$+s(%&2p^xvi
 DEBUG = True
 
 # ALLOWED_HOSTS = ['localhost', 'siteman.pythonanywhere.com']
-ALLOWED_HOSTS = ['127.0.0.1','localhost']
+ALLOWED_HOSTS = ['.vercel.app']
+
 
 # Application definition
 
