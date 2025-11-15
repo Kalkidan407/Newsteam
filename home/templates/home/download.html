@@ -1,0 +1,37 @@
+{% extends "home/base.html" %} {% block content%}
+<section class="container mt-5 d-flex">
+  <legend class="text-success display-3 text-center downloadtxt">
+    DOWNLOAD
+  </legend>
+</section>
+<div class="container cont text-center mt-5">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      {% for product in products %} {% if product.brochure %}
+      <a
+        class="btn btn-lg download-btn col-6 mt-3 w-100"
+        href="{{product.brochure.url}}/"
+        >DOWNLOAD BROCHURE FOR {{product.name}} - {{product.model }}</a
+      >
+      {% endif %} {% endfor %}
+    </div>
+  </div>
+</div>
+<style>
+  .cont {
+    margin-bottom: 50px;
+  }
+  .downloadtxt {
+    font-weight: 600;
+    text-shadow: 0px 0px 10px rgb(15, 196, 227);
+  }
+  .download-btn {
+    background-color: rgb(130, 208, 14);
+    color: white;
+  }
+  .download-btn:hover {
+    background-color: rgb(152, 220, 51);
+    color: white;
+  }
+</style>
+{% endblock %}

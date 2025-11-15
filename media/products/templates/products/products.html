@@ -1,0 +1,27 @@
+{% extends "home/base.html" %} {% load crispy_forms_tags %} {% load crispy_forms_tags %} {% block content%}
+<section class="container mt-5">
+	{% if messages %}
+	<div class="alert-container">
+		{% for message in messages %}
+		<div class="alert alert-{{ message.tags }}">{{ message }}</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+	<legend class="text-success display-3 text-center">PRODUCTS {% if user.is_authenticated %} <a class="btn btn-success btn-lg btn-outline" href="{% url 'publish-product-page'%}"> Add+ </a>{% endif %}</legend>
+	<div class="row">
+		<p></p>
+
+		{% for result in results %}
+		<div class="col-md-3 col-sm-6 mb-4 h-25">
+			<a class="card border-0 text-center text-decoration-none" href="{% url 'product-page' result.id %}">
+				<div class="card-body">
+					<img src="{{result.images.first.image.url}}" class="card-img-top img-fluid" alt="product image" style="min-height: 16rem; max-height: 16rem; max-width: 16rem" />
+					<h6 class="card-title font-weight-bold">{{result.name}} ({{result.brand}}-{{result.model}})</h6>
+					<p class="card-text text-muted" style="font-size: 0.775rem">{{result.description|slice:":100"}}...</p>
+				</div>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+{% endblock %}

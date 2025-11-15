@@ -1,0 +1,65 @@
+{% extends "home/base.html" %} {% load crispy_forms_tags %} {% load
+crispy_forms_tags %} {% block content%}
+<section class="container mt-5">
+  <div class="cardL">
+    <div class="card-body">
+      <form method="POST">
+        {% csrf_token %}
+        <legend class="COMPANY-LOGIN">COMPANY LOGIN</legend>
+        <div class="maincon" id="maincon2">{{ form | crispy }}</div>
+        <div class="text-center">
+          <button class="btn-login btn-outline-success rounded-pill">
+            LOGIN
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<style>
+  .COMPANY-LOGIN {
+    display: flex;
+    position: relative;
+    left: 180px;
+    width: 5rem;
+  }
+
+  .maincon {
+    position: relative;
+    left: 29%;
+    width: 25rem;
+  }
+  @media (max-width: 754px) {
+    .COMPANY-LOGIN {
+      display: flex;
+      position: relative;
+      left: 30px;
+      width: 5rem;
+    }
+    .maincon {
+      position: relative;
+      right: 20%;
+      width: 15rem;
+    }
+  }
+  .cardL {
+    width: 100%;
+    height: 45%;
+  }
+  .card-body {
+    text-align: start;
+  }
+  .btn-login {
+    width: 9rem;
+    height: 2rem;
+    outline: none;
+    border: none;
+    background-color: rgb(12, 232, 12);
+    color: white;
+    margin-bottom: 12rem;
+  }
+  .btn-login:hover {
+    background-color: greenyellow;
+  }
+</style>
+{% endblock %}

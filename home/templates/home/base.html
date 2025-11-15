@@ -1,0 +1,570 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.9, maximum-scale=2.0, user-scalable=yes"
+    />
+    {% if full_title %}
+    <title>{{full_title}}</title>
+    {% elif page_title %}
+    <title>Stem Medica - {{page_title}}</title>
+    {% else %}
+    <title>Stem Medica</title>
+    {% endif %}
+    <link rel="icon" href="/media/images/icons/logo.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="/media/images/icon/logo.ico"
+      type="image/x-icon"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Sofia"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="A concise and compelling description of the page content. Include important keywords here."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.yoursite.com/page-url" />
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <!--Header-->
+    <header>
+      <nav class="navbar upNav navbar-expand-lg navbar-light h-70" ID="mainNav">
+        <div class="container">
+          <span class="navbar-brand">
+            <img
+              src="/media/images/icons/logo.jpg"
+              alt="Logo"
+              style="width: 120px"
+            />
+          </span>
+          <!--Menu-->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navVatup navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link underline-hover change-color"
+                  href="{% url 'home-page'%}"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link underline-hover change-color"
+                  href="{% url 'products-page'%}"
+                  >Products</a
+                >
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <li>
+                    <a
+                      class="dropdown-item underline-hover change-color"
+                      href="{% url 'products-page'%}"
+                      >All Products</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item underline-hover change-color"
+                      href="{% url 'category-page' '1'%}"
+                      >Laboratory Equipment</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item underline-hover change-color"
+                      href="{% url 'category-page' '2'%}"
+                      >Monitoring Devices</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item underline-hover change-color"
+                      href="{% url 'category-page' '3'%}"
+                      >Operation Room</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item underline-hover change-color"
+                      href="{% url 'category-page' '4'%}"
+                      >Hospital Furniture</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item underline-hover change-color"
+                      href="{% url 'category-page' '5'%}"
+                      >Ultrasounds</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item underline-hover change-color"
+                      href="{% url 'category-page' '6'%}"
+                      >Anesthetics</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item underline-hover change-color"
+                      href="{% url 'category-page' '7'%}"
+                      >X-Ray & Imaging</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link underline-hover change-color"
+                  href="{% url 'categories-page'%}"
+                  >Categories</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link underline-hover change-color"
+                  href="{% url 'download-page'%}"
+                  >Download</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link underline-hover change-color"
+                  href="{% url 'about-us-page'%}"
+                  >About Us</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link underline-hover change-color"
+                  href="{% url 'contact-us-page'%}"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+            <a
+              href="https://wa.me/+251921136180"
+              target="_blank"
+              class="whatsapp btn btn-outline-success btn-sm d-flex align-items-center"
+            >
+              <i class="bi bi-whatsapp fs-4"></i> Whatsapp
+            </a>
+          </div>
+        </div>
+        {% if user.is_authenticated %}
+        <!-- Outlined pill button inside a div -->
+        <a
+          class="logout btn btn-sm underline-hover btn-outline-danger rounded md:"
+          href="{% url 'logout-page' %}"
+          >Logout</a
+        >
+        {% else %}
+        <a
+          class="login btn btn-sm underline-hover btn-outline-primary rounded"
+          href="{% url 'login-page' %}"
+          >Login</a
+        >
+        {% endif %}
+      </nav>
+
+      <div class="searchInp d-flex flex-grow-1 mx-3 justify-content-center">
+        <!-- Input Group for search -->
+
+        <form
+          method="GET"
+          action="{% url 'products-page'%}"
+          class="input-group"
+        >
+          <input
+            type="text"
+            name="q"
+            class="form-control"
+            placeholder="Search..."
+            aria-label="Search"
+          />
+          <button class="btn btn-search border-0 btn-success" type="submit">
+            <i class="bi bi-search"></i>
+            <!-- Bootstrap icon for search -->
+          </button>
+        </form>
+      </div>
+    </header>
+
+    {% block content %}{% endblock %}
+    <div class="d-flex flex-column">
+      <!-- Main Content of the page goes here -->
+      <div class="flex-grow-1">
+        <!-- Your page content -->
+      </div>
+    </div>
+
+    <footer class="footerStyle text-light">
+      <div class="container">
+        <div class="row fotterSec1">
+          <div class="col-md-6">
+            <h5 class="text-success">About Us</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a
+                  href="{% url 'about-us-page'%}"
+                  class="text-light text-decoration-none"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="{% url 'download-page'%}"
+                  class="text-light text-decoration-none"
+                  >Brochures</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-6">
+            <h5 class="text-success">Contact Us</h5>
+            <ul class="list-unstyled">
+              <li>
+                <i class="bi bi-geo-alt-fill"></i> Addis Ababa, Bole Road
+                <br />Kal building infront of Niyala Motors
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="border-light" />
+        <div class="text-center">
+          <div class="mt-3">
+            <a href="https://web.facebook.com/"
+              ><i class="bi bi-facebook text-light mx-2"></i
+            ></a>
+            <a href="https://x.com/"
+              ><i class="bi bi-twitter text-light mx-2"></i
+            ></a>
+            <a href="https://www.linkedin.com/"
+              ><i class="bi bi-linkedin text-light mx-2"></i
+            ></a>
+            <a href="https://www.instagram.com/"
+              ><i class="bi bi-instagram text-light mx-2"></i
+            ></a>
+            <a href="https://www.instagram.com/"
+              ><i class="bi bi-youtube text-light mx-2"></i
+            ></a>
+          </div>
+        </div>
+        <p class="text-center">
+          Stem Medica Medical Equipment Co., Ltd. © All Rights Reserved
+        </p>
+      </div>
+    </footer>
+
+    <!-- Boostrap's JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      defer
+    ></script>
+
+    <style>
+      .logout {
+        position: relative;
+        right: 60px;
+        width: 80px;
+        color: rgb(17, 55, 131);
+        font-weight: 500;
+        font-size: 20px;
+        border: none;
+      }
+      .login:hover {
+        border: none;
+        color: greenyellow;
+        background-color: #fff;
+      }
+      .login {
+        position: relative;
+        right: 60px;
+        width: 80px;
+        color: rgb(17, 55, 131);
+        font-weight: 500;
+        font-size: 22px;
+        border: none;
+      }
+      .whatsapp {
+        position: relative;
+        left: 35px;
+        background-color: rgb(152, 244, 14);
+        color: white;
+        height: 37px;
+      }
+      .navVatup li {
+        margin-left: 12px !important;
+        font-weight: bold;
+        color: #0d4d75;
+      }
+      .navVatup li:hover {
+        color: rgb(150, 240, 15) !important;
+      }
+
+      .upNav {
+        background-color: #ffffff;
+        margin-bottom: 60px;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+      }
+      .searchInp {
+        width: 780px;
+        position: relative;
+        left: 600px;
+      }
+      @media (max-width: 1236px) {
+        .upNav {
+          background-color: #ffffff;
+          margin-bottom: 60px;
+          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+        }
+      }
+      @media (max-width: 700px) {
+        .searchInp {
+          width: 480px;
+          position: relative;
+          left: 60px;
+        }
+        .logout {
+          position: relative;
+          right: 30px;
+          width: 20px;
+          color: rgb(17, 55, 131);
+          font-weight: 500;
+          font-size: 19px;
+          border: none;
+        }
+
+        .login {
+          position: relative;
+          right: 30px;
+          width: 20px;
+          color: rgb(17, 55, 131);
+          font-weight: 500;
+          font-size: 19px;
+          border: none;
+        }
+      }
+      @media (max-width: 1366px) {
+        .searchInp {
+          width: 450px;
+          position: relative;
+          left: 222px;
+        }
+        .logout {
+          position: relative;
+          right: 20px;
+          width: 30px;
+          color: rgb(17, 55, 131);
+          font-weight: 300;
+          font-size: 12px;
+          border: none;
+        }
+
+        .login {
+          position: relative;
+          right: 50px;
+          width: 30px;
+          color: rgb(17, 55, 131);
+          font-weight: 500;
+          font-size: 12px;
+          border: none;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .searchInp {
+          width: 350px;
+          position: relative;
+          left: 60px;
+        }
+        .logout {
+          position: relative;
+          right: 20px;
+          width: 30px;
+          color: rgb(17, 55, 131);
+          font-weight: 300;
+          font-size: 12px;
+          border: none;
+        }
+
+        .login {
+          position: relative;
+          right: 20px;
+          width: 30px;
+          color: rgb(17, 55, 131);
+          font-weight: 500;
+          font-size: 12px;
+          border: none;
+        }
+      }
+
+      .btn-search {
+        background-color: rgb(152, 244, 14);
+        position: relative;
+        right: 40px;
+      }
+      .underline-hover {
+        position: relative;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .underline-hover::after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        bottom: -1px;
+        width: 0;
+        height: 2px;
+        background-color: greenyellow;
+        transition: width 0.3s ease;
+      }
+
+      .underline-hover:hover::after {
+        width: 95%;
+      }
+
+      li {
+        margin-left: 0px;
+        font-weight: 500;
+      }
+      li:hover {
+        color: greenyellow;
+      }
+
+      .navmenu {
+        height: 290px;
+      }
+
+      .navmenu .dropdown ul {
+        margin: 0;
+        padding: 10px 0;
+        background: var(--nav-dropdown-background-color);
+        display: block;
+        position: absolute;
+        visibility: hidden;
+        left: 0;
+        top: 130%;
+        opacity: 0;
+        transition: 0.3s;
+        border-radius: 15px;
+        z-index: 99;
+        box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.8);
+      }
+
+      .navmenu .dropdown ul li {
+        min-width: 200px;
+        margin-left: 0;
+      }
+
+      .navmenu .dropdown ul a {
+        padding: 10px 20px;
+        font-size: 15px;
+        text-transform: none;
+        color: var(--nav-dropdown-color);
+      }
+
+      .navmenu .dropdown ul a i {
+        font-size: 12px;
+      }
+
+      .navmenu .dropdown ul a:hover,
+      .navmenu .dropdown ul .active:hover,
+      .navmenu .dropdown ul li:hover > a {
+        background-color: transparent;
+        color: var(--nav-hover-color);
+      }
+
+      .navmenu .dropdown:hover > ul {
+        opacity: 1;
+        top: 105%;
+        visibility: visible;
+      }
+
+      .navmenu .dropdown .dropdown ul {
+        top: 0;
+        left: -90%;
+        visibility: hidden;
+      }
+
+      .navmenu .dropdown .dropdown:hover > ul {
+        opacity: 1;
+        top: 0;
+        left: -100%;
+        width: 30%;
+        visibility: visible;
+      }
+      .dropdown-toggle::after {
+        display: none;
+      }
+      .change-color:hover {
+        color: green;
+      }
+      .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        visibility: visible;
+      }
+
+      /* Ensure the dropdown menu is hidden by default */
+      .dropdown-menu {
+        display: block;
+        visibility: hidden;
+        position: absolute;
+        z-index: 1000; /* Optional: Adjust if menu appears behind other elements */
+      }
+
+      /* Optional: Add styling for the dropdown list */
+      .dropdown-menu {
+        min-width: 160px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 0.25rem;
+      }
+
+      .footerStyle {
+        position: relative;
+        top: 10px;
+        bottom: 0;
+        left: 0;
+        background-color: #08314b;
+      }
+      .fotterSec1 {
+        padding-top: 25px;
+        margin-left: 270px;
+      }
+    </style>
+  </body>
+</html>

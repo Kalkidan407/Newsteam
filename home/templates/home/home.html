@@ -1,0 +1,215 @@
+{% extends "home/base.html" %} {% block content %}
+<div class="heroSection mt-5">
+  <div class="para fs-6 fs-md-5 fs-lg-4 text-center">
+    <p class="weltxt" style="font-family: Raleway">
+      Welcome to <span class="medica">STEM</span>
+      <span class="medica"> Medica</span>
+    </p>
+    <p class="para2">
+      Medical Supplies In Ethiopia With The Highest Quality & Affordability
+    </p>
+  </div>
+</div>
+<div
+  id="equipmentCarousel"
+  class="container text-center mt-4 carousel slide"
+  data-bs-ride="carousel"
+>
+  <!-- Carousel Inner Items -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for category in categories_active %}
+        <div class="col">
+          <a
+            href="{% url 'category-page' category.id %}"
+            class="text-decoration-none"
+          >
+            <img
+              src="{{ category.image.url }}"
+              class="img-fluid"
+              alt="{{category.name }} thumbnail"
+              style="height: 15rem; object-fit: cover"
+              oncontextmenu="return false;"
+            />
+            <p class="mt-2 text-success">{{category.name}}</p>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Additional carousel items for sliding -->
+    <div class="carousel-item">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for category in categories_rest|slice:":3" %}
+        <div class="col">
+          <a
+            href="{% url 'category-page' category.id %}"
+            class="text-decoration-none"
+          >
+            <img
+              src="{{ category.image.url }}"
+              class="img-fluid"
+              alt="{{category.name }} thumbnail"
+              style="height: 15rem; object-fit: cover"
+            />
+            <p class="mt-2 text-success">{{category.name}}</p>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% block pageoption %} {% endblock pageoption %}
+  <div class="container text-center my-5">
+    <h2 class="whowe">WHO WE ARE</h2>
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-10 p-4 whoweCard" style="border-radius: 15px">
+        <div class="row align-items-center">
+          <!-- Section 3 Image -->
+          <div class="col-md-4 mb-3 mb-md-0">
+            <img
+              src="/media/images/stock/smiling-welcome.webp"
+              class="img-fluid rounded"
+              alt="Our Team"
+              oncontextmenu="return false;"
+            />
+          </div>
+          <!-- Section 3 details -->
+          <div class="col-md-8 text-start">
+            <p>
+              Stem-Medica is an Ethiopian Based Medical Equipment Importers. We
+              offer Medical Equipment of the highest quality in the following
+              categories and more:
+            </p>
+            <div class="row row-cols-1 row-cols-sm-2">
+              {% for category in categories|slice:":half" %}
+              <div class="col">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      href="{% url 'category-page' category.id %}"
+                      class="text-decoration-none text-success"
+                      >{{category.name}}</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .heroSection {
+    width: 100%;
+    height: 650px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    animation: slideIn 50s infinite, changeImage 50s infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @keyframes slideIn {
+    0% {
+      background-position: 100% center;
+    }
+    50% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: -80% center;
+    }
+  }
+
+  @keyframes changeImage {
+    0% {
+      background-image: url("/media/images/category/thumbnails/heroBgimg.jpg");
+    }
+    33% {
+      background-image: url("/media/images/category/thumbnails/her-2bg.jpg");
+    }
+    66% {
+      background-image: url("/media/images/category/thumbnails/heroBgimg.jpg");
+    }
+    100% {
+      background-image: url("/media/images/category/thumbnails/her-2bg.jpg");
+    }
+  }
+  h2 {
+    color: greenyellow;
+  }
+  .whoweCard {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(6, 174, 129, 0.85);
+    padding-top: 20px;
+  }
+  .whoweCard p {
+    color: #084c76;
+    font-size: 19px;
+    font-weight: 600;
+  }
+  .whoweCard ul {
+    margin-left: 0;
+    padding-left: 20px;
+  }
+  .whoweCard ul li {
+    color: greenyellow;
+  }
+
+  .para {
+    background-color: rgba(255, 255, 255, 0.1.8);
+    position: relative;
+    top: -120px;
+    border-radius: 15px;
+  }
+  .para2 {
+    color: green;
+    position: relative;
+    top: -30px;
+    font-weight: bold;
+  }
+  .weltxt {
+    font-size: 4.3rem;
+    font-weight: 900;
+    color: rgb(12, 61, 118);
+  }
+  .stem {
+    color: rgb(12, 61, 118);
+  }
+  .medica {
+    color: greenyellow;
+  }
+
+  @media (max-width: 768px) {
+    .heroSection {
+      height: 50vh;
+    }
+    .weltxt {
+      font-size: 2rem;
+    }
+    .para2 {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .heroSection {
+      height: 40vh;
+    }
+    .weltxt {
+      font-size: 1.5rem;
+    }
+    .para2 {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+{% endblock content %}

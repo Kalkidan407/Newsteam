@@ -1,0 +1,61 @@
+{% extends "home/base.html" %} {% load crispy_forms_tags %} {% load
+crispy_forms_tags %} {% block content%}
+<section class="container mt-5">
+  {% if messages %}
+  <div class="alert-container">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <legend class="produ text-success display-3 text-center">
+    PRODUCTS {% if user.is_authenticated %}
+    <a class="btn add-btn btn-lg" href="{% url 'publish-product-page'%}">
+      Add+ </a
+    >{% endif %}
+  </legend>
+
+  <div class="row">
+    <p></p>
+
+    {% for result in results %}
+    <div class="col-md-3 col-sm-6 mb-4 h-25">
+      <a
+        class="card border-0 text-center text-decoration-none"
+        href="{% url 'product-page' result.id %}"
+      >
+        <div class="card-body">
+          <img
+            src="{{result.images.first.image.url}}"
+            class="card-img-top img-fluid"
+            alt="product image"
+            style="min-height: 16rem; max-height: 16rem; max-width: 16rem"
+          />
+          <h6 class="card-title font-weight-bold">
+            {{result.name}} ({{result.brand}}-{{result.model}})
+          </h6>
+          <p class="card-text text-muted" style="font-size: 0.775rem">
+            {{result.description|slice:":100"}}...
+          </p>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<style>
+  .produ {
+    font-weight: 600;
+    text-shadow: 0px 0px 10px rgb(15, 196, 227);
+  }
+  .add-btn {
+    background-color: rgb(152, 244, 14);
+    color: white;
+    margin-left: 20px;
+  }
+  .add-btn:hover {
+    background-color: rgb(93, 147, 11);
+    color: white;
+  }
+</style>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "home/base.html" %} {% load crispy_forms_tags %} {% load crispy_forms_tags %} {% block content%}
+<section class="container mt-5">
+	{% if messages %}
+	<div class="alert-container">
+		{% for message in messages %}
+		<div class="alert alert-{{ message.tags }}">{{ message }}</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+	<div class="card">
+		<legend class="text-success display-3 text-center">{{category.name}}</legend>
+		<p class="text-success display-7 text-center"><br />{{ category.description}}</p>
+	</div>
+	<p><br /><br /></p>
+	<div class="row">
+		{% for product in category.products.all %}
+		<div class="col-md-2 col-6 mb-4 h-25">
+			<a class="card border-0 text-center text-decoration-none" href="{% url 'product-page' product.id%}">
+				<img src="{{product.images.first.image.url}}" class="card-img-top img-fluid d-block mx-auto" alt="product image" style="min-height: 10rem; max-height: 10rem; max-width: 10rem" oncontextmenu="return false;" />
+				<div class="card-body">
+					<h6 class="card-title font-weight-bold">{{product.name}} ({{product.brand}}-{{product.model}})</h6>
+					<p class="card-text text-muted">{{product.name}}</p>
+				</div>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+{% endblock %}
